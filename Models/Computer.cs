@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using Microsoft.SqlServer.Server;
@@ -13,6 +14,14 @@ namespace MongoProject1.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        public string Name []
+        [Display(Name = "Название модели")]
+        public string Name { get; set; }
+
+        [Display(Name = "Год выпуска")]
+        public int Year { get; set; }
+
+        public string ImageId { get; set; }
+
+        public bool HasImage => !string.IsNullOrWhiteSpace(ImageId);
     }
 }
